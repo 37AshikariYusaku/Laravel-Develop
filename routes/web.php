@@ -15,8 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
-	Route::get('review/create', 'Admin\ReviewController@add');
-	Route::get('profile/create', 'Admin\ProfileController@add');
-	Route::get('profile/edit', 'Admin\ProfileController@edit');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+	Route::get('review/create', 'Admin\ReviewController@add')->middleware('auth');
+	Route::post('review/create', 'Admin\ReviewController@create');
+	Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
+	Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

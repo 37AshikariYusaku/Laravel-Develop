@@ -11,4 +11,8 @@ class ReviewController extends Controller
     public function add() {
     	return view('admin.review.create');
     }
+    
+    public function create(Request $request) {
+        return redirect('admin/news/create');
+    }
 }
