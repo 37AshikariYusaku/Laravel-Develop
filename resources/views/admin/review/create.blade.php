@@ -50,7 +50,7 @@
                     </div>
                     <div>
                     <select name="_pref">
-                     @foreach(config('score') as $key => $score)
+                     @foreach(Config::get('score') as $key => $score)
                        <option value="{{ $key }}" @if(old('_pref')) selected @endif>{{ $score }}</option>
                      @endforeach
                     </select>
