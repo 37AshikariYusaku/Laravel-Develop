@@ -19,7 +19,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::get('review/create', 'Admin\ReviewController@add')->middleware('auth');
 	Route::post('review/create', 'Admin\ReviewController@create');
 	Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
+	Route::post('profile/create', 'Admin\ProfileController@create');
 	Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
+	Route::post('profile/edit', 'Admin\ProfileController@update');
 });
 
 Auth::routes();

@@ -48,13 +48,7 @@
                             <textarea class="form-control" name="review" rows="10">{{ old('review') }}</textarea>
                         </div>
                     </div>
-                    <div>
-                    <select name="_pref">
-                     @foreach(Config::get('score') as $key => $score)
-                       <option value="{{ $key }}" @if(old('_pref')) selected @endif>{{ $score }}</option>
-                     @endforeach
-                    </select>
-                    </div>
+                    
                     <div class="form-group row">
                         <label class="col-md-2">画像</label>
                         <div class="col-md-10">
