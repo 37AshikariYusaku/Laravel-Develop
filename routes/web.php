@@ -18,12 +18,18 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::get('review/create', 'Admin\ReviewController@add')->middleware('auth');
 	Route::post('review/create', 'Admin\ReviewController@create');
+	Route::get('review', 'Admin\ReviewController@index');
+	Route::get('review/edit', 'Admin\ReviewController@edit');
+	Route::post('review/edit', 'Admin\ReviewController@update');
+	Route::get('review/delete', 'Admin\ReviewController@delete');
 	Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
 	Route::post('profile/create', 'Admin\ProfileController@create');
 	Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
 	Route::post('profile/edit', 'Admin\ProfileController@update');
 });
 
+	Route::get('/', 'ReviewController@index');
+	
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

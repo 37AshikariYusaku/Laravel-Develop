@@ -149,6 +149,12 @@ return [
         'brand' => 'ブランド',
         'title' => '商品名',
         'review' => 'その他レビュー',
-        'image' => '画像'],
+        'image' => '画像',
+        'name' => '名前',
+        'gender' => '性別',
+        'brand' => '好きなブランド',
+        'introduction' => '自己紹介',
+        ],
+        
 
 ];

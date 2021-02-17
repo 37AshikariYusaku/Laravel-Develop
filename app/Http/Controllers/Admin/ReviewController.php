@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Review;
+use App\History;
+use Carbon\Carbon;
 
 
 class ReviewController extends Controller
@@ -32,6 +34,56 @@ class ReviewController extends Controller
         $review->save();
         
         
-        return redirect('admin/news/create');
+        return redirect('admin/review/create');
+    }
+    
+    public function index(Request $request) {
+        $cond_title = $request->cond_title;
+        if($cond_title !='') {
+            $posts = Review::where('brand', $cond_title)->get();
+        } else {
+            $posts = Review::all();
+        }
+        return view('admin.review.index', ['posts' => $posts,'cond_title' => $cond_title]);
+    }
+    
+    public function edit(Request $request) {
+        $review = Review::find($request->id);
+        if(empty($review)) {
+            abort(404);
+        }
+        return view('admin.review.edit', ['review' => $review]);
+    }
+    
+    public function update(Request $request) {
+        $this->validate($request, Review::$rules);
+        $review = Review::find($request->id);
+        $review_form = $request->all();
+        if( $request->file('image')) {
+            $path = $request->file('image')->store('public/image');
+            $review_form['image_path'] = basename($path);
+        } else {
+            $review_form['image_path'] = $review->image_path;
+        }
+        
+        unset($review_form['image']);
+        unset($review_form['_token']);
+        
+        $review->fill($review_form)->save();
+        
+        
+        $history = new History;
+        $history->review_id = $review->id;
+        $history->edited_at = Carbon::now();
+        $history->save();
+        
+        return redirect('admin/review');
+        
+    }
+    
+    public function delete(Request $request) {
+        $review = Review::find($request->id);
+        $review->delete();
+        return redirect('admin/review');
     }
 }

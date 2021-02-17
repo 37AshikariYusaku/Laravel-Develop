@@ -42,6 +42,16 @@
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">生地の厚さ</label>    
+                        <select name="thickness">
+                         @foreach(Config::get('thickness') as $key => $score)
+                           <option value="{{ $key }}" @if(old('thickness')) selected @endif>{{ $score }}</option>
+                         @endforeach
+                        </select>
+                    </div>
+
                     <div class="form-group row">
                         <label class="col-md-2">その他レビュー</label>
                         <div class="col-md-10">

@@ -14,6 +14,9 @@ class Review extends Model
     	'brand' => 'required',
     	'title' => 'required',
     	'review' => 'required', 
-    	'image' => 'required'
     	);
+    	
+	public function histories() {
+	    return $this->hasMany('App\History');
+	}
 }
