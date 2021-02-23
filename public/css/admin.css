@@ -1,3 +1,5 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);@charset "UTF-8";
+
 body {
   background-repeat: no-repeat;
   background-position: center;
@@ -37,5 +39,54 @@ body {
 
 .login-body {
   background-color: rgba(0, 0, 0, 0.25);
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+/* to hide the checkbox itself */
+
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+input[type=checkbox] + label:before {
+  content: "\F096";
+}
+
+/* unchecked icon */
+
+input[type=checkbox] + label:before {
+  letter-spacing: 8px;
+}
+
+/* space between checkbox and label */
+
+input[type=checkbox]:checked + label:before {
+  content: "\F046";
+}
+
+/* checked icon */
+
+input[type=checkbox]:checked + label:before {
+  letter-spacing: 6px;
+}
+
+/* allow space for check mark */
+
+.label {
+  margin-left: 13px;
+}
+
+.check {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  color: white;
+  background: rgba(152, 251, 152, 0.6);
 }
 

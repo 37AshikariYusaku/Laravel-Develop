@@ -13,6 +13,7 @@ class ReviewController extends Controller
 {
     //
     public function add() {
+
     	return view('admin.review.create');
     }
     
@@ -40,7 +41,8 @@ class ReviewController extends Controller
     public function index(Request $request) {
         $cond_title = $request->cond_title;
         if($cond_title !='') {
-            $posts = Review::where('brand', $cond_title)->get();
+            // $posts = Review::where('brand', $cond_title)->get();
+            $posts = Review::where('brand', 'like', '%'.$cond_title.'%')->get();
         } else {
             $posts = Review::all();
         }

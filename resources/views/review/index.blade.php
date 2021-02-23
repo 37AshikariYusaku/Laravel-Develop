@@ -1,6 +1,24 @@
 @extends('layouts.front')
 
 @section('content')
+　　<div class="row">
+　　    <div class="col-md-11">
+            <div class="col-md-4 ml-auto serch">
+                <form action="{{ action('ReviewController@index') }}" method="get">
+                    <div class="form-group row">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="keyword" value="{{ $keyword }}">
+                        </div>
+                        <div class="col-md-2">
+                            {{ csrf_field() }}
+                            <input type="submit" class="btn" value="検索">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>    
+    </div>
+        
     <div class="container">
         <hr color="#c0c0c0">
         @if (!is_null($headline))

@@ -44,10 +44,46 @@
                     </div>
                     
                     <div class="form-group row">
+                        <label class="col-md-2">サイズ</label>    
+                        <select name="size" class="col-md-3 label">
+                         @foreach(config('size') as $score)
+                           <option value="" hidden>選択してください</option>  
+                           <option value="{{ $score }}" @if(old('size')) selected @endif>{{ $score }}</option>
+                         @endforeach
+                        </select>
+                    </div>
+                    
+                    <div class="form-group row">
+                           <label class="col-md-2 ml-10">素材</label>    
+                           <div class="check col-md-6">
+                               <input type="checkbox" id="cotton" name="cotton" value="コットン" class="check" @if(old('cotton')) selected @endif>
+                               <label for="cotton">コットン</label>
+                               <input type="checkbox" id="wool" name="wool" value="ウール" class="check" @if(old('wool')) selected @endif>
+                               <label for="wool">ウール</label>
+                               <input type="checkbox" id="silk" name="silk" value="シルク" class="check" @if(old('silk')) selected @endif>
+                               <label for="silk">シルク</label>
+                               <input type="checkbox" id="other" name="other" value="その他" class="check" @if(old('other')) selected @endif>
+                               <label for="other">その他</label>
+                           </div>   
+                    </div>
+                    
+                    <div class="form-group row">
                         <label class="col-md-2">生地の厚さ</label>    
-                        <select name="thickness">
-                         @foreach(Config::get('thickness') as $key => $score)
-                           <option value="{{ $key }}" @if(old('thickness')) selected @endif>{{ $score }}</option>
+                        <select name="thickness" class="col-md-3 label">
+                         @foreach(config('thickness') as $score)
+                           <option value="" hidden>選択してください</option>  
+                           <option value="{{ $score }}" @if(old('thickness')) selected @endif>{{ $score }}</option>
+                         @endforeach
+                        </select>
+                    </div>
+                    
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">透け感</label>    
+                        <select name="sheerness" class="col-md-3 label">
+                         @foreach(config('sheerness') as $score)
+                           <option value="" hidden>選択してください</option>  
+                           <option value="{{ $score }}" @if(old('sheerness')) selected @endif>{{ $score }}</option>
                          @endforeach
                         </select>
                     </div>

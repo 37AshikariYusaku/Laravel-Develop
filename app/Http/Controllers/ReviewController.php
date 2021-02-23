@@ -9,15 +9,42 @@ use App\Review;
 class ReviewController extends Controller
 {
     //
-    public function index(Request $request) {
-    	$posts = Review::all()->sortByDesc('updated_at');
+    // public function index(Request $request) {
+    // 	$posts = Review::all()->sortByDesc('updated_at');
     	
-    	if(count($posts) > 0) {
+    // 	if(count($posts) > 0) {
+    // 		$headline = $posts->shift();
+    // 	} else {
+    // 		$headline = null;
+    // 	}
+    	
+    // 	return view('review.index', ['headline' => $headline, 'posts' => $posts]);
+    // }
+    
+    // public function index(Request $request) {
+    //     $cond_title = $request->cond_title;
+    //     if($cond_title !='') {
+    //         // $posts = Review::where('brand', $cond_title)->get();
+    //         $posts = Review::where('brand', 'like', '%'.$cond_title.'%')->get();
+    //     } else {
+    //         $posts = Review::all();
+    //     }
+    //     return view('admin.review.index', ['posts' => $posts,'cond_title' => $cond_title]);
+    // }
+    
+    public function index(Request $request) {
+        $keyword = $request->keyword;
+        if($keyword !='') {
+            $posts = Review::where('brand', 'like', '%'.$keyword.'%')->orWhere('review', 'like', '%'.$keyword.'%')->get();
+        } else {
+            $posts = Review::all()->sortByDesc('updated_at');
+        }
+        
+        if(count($posts) > 0) {
     		$headline = $posts->shift();
     	} else {
     		$headline = null;
     	}
-    	
-    	return view('review.index', ['headline' => $headline, 'posts' => $posts]);
+        return view('review.index', ['posts' => $posts, 'keyword' => $keyword, 'headline' => $headline]);
     }
 }
