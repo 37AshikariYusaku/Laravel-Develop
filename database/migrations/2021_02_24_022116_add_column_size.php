@@ -13,7 +13,7 @@ class AddColumnSize extends Migration
      */
     public function up()
     {
-        Schema::table('create_reviews_table', function (Blueprint $table) {
+        Schema::table('reviews', function (Blueprint $table) {
             //
             $table->string('size');
         });
@@ -26,7 +26,7 @@ class AddColumnSize extends Migration
      */
     public function down()
     {
-        Schema::table('create_reviews_table', function (Blueprint $table) {
+        Schema::table('reviews', function (Blueprint $table) {
             //
             $table->dropColumn('size');
         });

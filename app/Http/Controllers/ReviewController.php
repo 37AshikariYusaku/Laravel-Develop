@@ -35,7 +35,7 @@ class ReviewController extends Controller
     public function index(Request $request) {
         $keyword = $request->keyword;
         if($keyword !='') {
-            $posts = Review::where('brand', 'like', '%'.$keyword.'%')->orWhere('review', 'like', '%'.$keyword.'%')->get();
+            $posts = Review::where('brand', 'like', '%'.$keyword.'%')->orWhere('review', 'like', '%'.$keyword.'%')->orWhere('title', 'like', '%'.$keyword.'%')->get();
         } else {
             $posts = Review::all()->sortByDesc('updated_at');
         }

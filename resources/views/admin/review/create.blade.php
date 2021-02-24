@@ -54,17 +54,13 @@
                     </div>
                     
                     <div class="form-group row">
-                           <label class="col-md-2 ml-10">素材</label>    
+                           <label class="col-md-2 ml-10">素材</label>
                            <div class="check col-md-6">
-                               <input type="checkbox" id="cotton" name="cotton" value="コットン" class="check" @if(old('cotton')) selected @endif>
-                               <label for="cotton">コットン</label>
-                               <input type="checkbox" id="wool" name="wool" value="ウール" class="check" @if(old('wool')) selected @endif>
-                               <label for="wool">ウール</label>
-                               <input type="checkbox" id="silk" name="silk" value="シルク" class="check" @if(old('silk')) selected @endif>
-                               <label for="silk">シルク</label>
-                               <input type="checkbox" id="other" name="other" value="その他" class="check" @if(old('other')) selected @endif>
-                               <label for="other">その他</label>
-                           </div>   
+                               @foreach(config('material') as $key => $score)
+                                   <input type="checkbox" id="{{ $key }}" name="material" value="{{ $score }}" class="check" @if(old({{ $key }})) selected @endif>
+                                   <label for="{{ $key }}">{{ $score }}</label>
+                               @endforeach
+                           </div>
                     </div>
                     
                     <div class="form-group row">
