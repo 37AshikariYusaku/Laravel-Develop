@@ -40,6 +40,10 @@
                                 <h1>商品名：{{ str_limit($headline->title, 70) }}</h1>
                             </div>
                             <div>
+                                <h2 class="review mt-4">サイズ：{{ str_limit($headline->size, 10) }}</h2>
+                                <h2 class="review">素材：{{ str_limit($headline->material, 100) }}</h2>
+                                <h2 class="review">生地の厚さ：{{ str_limit($headline->thickness, 10) }}</h2>
+                                <h2 class="review">透け感：{{ str_limit($headline->sheerness, 10) }}</h2>
                                 <h2 class="review mt-4">その他レビュー：</h2>
                                 <p class="review mx-auto mt-2">{{ str_limit($headline->review, 650) }}</p>
                                 
@@ -66,8 +70,12 @@
                                     {{ str_limit($post->title, 150) }}
                                 </div>
                                 <div class="review">
-                                    <p class="mt-4">その他レビュー：</p>
-                                    <p>{{ str_limit($post->review, 1500) }}</p>
+                                    <h2 class="review mt-4">サイズ：{{ str_limit($post->size, 10) }}</h2>
+                                <h2 class="review">素材：{{ str_limit($post->material, 100) }}</h2>
+                                <h2 class="review">生地の厚さ：{{ str_limit($post->thickness, 10) }}</h2>
+                                <h2 class="review">透け感：{{ str_limit($post->sheerness, 10) }}</h2>
+                                <h2 class="review mt-4">その他レビュー：</h2>
+                                <p class="review mx-auto mt-2">{{ str_limit($post->review, 650) }}</p>
                                 </div>
                             </div>
                             <div class="image col-md-6 text-right mt-4">

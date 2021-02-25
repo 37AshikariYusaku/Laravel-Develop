@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Review;
 use App\History;
+use App\Profile;
 use Carbon\Carbon;
 
 
@@ -28,10 +29,19 @@ class ReviewController extends Controller
         $path = $request->file('image')->store('public/image');
         $review->image_path = basename($path);
         
+        // 素材複数選択
+        $material = implode(",", $request->input('material',array()));
+        $review->material = $material;
+        
         unset($form['_token']);
         unset($form['image']);
+        unset($form['material']);
         
         $review->fill($form);
+        
+        $profile = new Profile;
+        $review->profile_id = $profile->id;
+         
         $review->save();
         
         

@@ -57,7 +57,7 @@
                            <label class="col-md-2 ml-10">素材</label>
                            <div class="check col-md-6">
                                @foreach(config('material') as $key => $score)
-                                   <input type="checkbox" id="{{ $key }}" name="material" value="{{ $score }}" class="check" @if(old({{ $key }})) selected @endif>
+                                   <input type="checkbox" id="{{ $key }}" name="material[]" value="{{ $score }}" class="check" @if(old('material')) selected @endif>
                                    <label for="{{ $key }}">{{ $score }}</label>
                                @endforeach
                            </div>
@@ -97,6 +97,9 @@
                             <input type="file" class="form-control-file" name="image">
                         </div>
                     </div>
+                    
+                    
+                    
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="投稿">
                 </form>

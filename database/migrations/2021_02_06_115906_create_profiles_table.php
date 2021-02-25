@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('brand');
-            $table->string('introduction');
+            $table->integer('height');
         });
     }
 

@@ -17,29 +17,45 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">氏名</label>
+                        <label class="col-md-2">アカウント名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
+                    
                     <div class="form-group row">
-                        <label class="col-md-2">性別</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
-                        </div>
+                        <label class="col-md-2">性別</label>    
+                        <select name="gender" class="col-md-3 label">
+                         @foreach(config('gender') as $score)
+                           <option value="" hidden>選択してください</option>  
+                           <option value="{{ $score }}" @if(old('gender')) selected @endif>{{ $score }}</option>
+                         @endforeach
+                        </select>
                     </div>
+                    
                     <div class="form-group row">
-                        <label class="col-md-2">好きなブランド</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="brand" value="{{ old('brand') }}">
-                        </div>
+                        <label class="col-md-2">身長</label>
+                        <div class="col-md-8 height">
+                            <div>
+                                <input type="number" step="0.1" class="form-control" name="height" value="{{ old('height') }}">
+                            </div>
+                            <div class="cm">cm</div>
+                        </div>    
                     </div>
+                    
                     <div class="form-group row">
-                        <label class="col-md-2">自己紹介</label>
-                        <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="10">{{ old('introduction') }}</textarea>
-                        </div>
+                        <label class="col-md-2">体型</label>    
+                        <select name="shape" class="col-md-3 label">
+                         @foreach(config('shape') as $score)
+                           <option value="" hidden>選択してください</option>  
+                           <option value="{{ $score }}" @if(old('shape') == $score) selected @endif>{{ $score }}</option>
+                         @endforeach
+                        </select>
                     </div>
+                    
+                    
+                    
+                    
                     
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="保存">

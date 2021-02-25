@@ -14,9 +14,20 @@ class Review extends Model
     	'brand' => 'required',
     	'title' => 'required',
     	'review' => 'required', 
+    	'size' => 'required',
+    	'material' => 'required',
+    	'thickness' => 'required',
+    	'sheerness' => 'required',
+    	'profile_id' => 'required',
     	);
     	
 	public function histories() {
 	    return $this->hasMany('App\History');
 	}
+	
+	public function profile() {
+	    return $this->belongsTo('App\Profile');
+	}
+	
+	
 }

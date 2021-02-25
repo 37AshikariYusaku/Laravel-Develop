@@ -69,3 +69,17 @@ input[type=checkbox]:checked + label:before { letter-spacing: 6px; } /* allow sp
   color: white;
   background: rgba(152,251,152, 0.6);
 }
+
+.height {
+  display: flex;
+  margin-right: auto;
+}
+
+.cm {
+  line-height: 3em;
+  margin-left: 10px;
+}
+
+.spacetop {
+  margin-top: 20px;
+}

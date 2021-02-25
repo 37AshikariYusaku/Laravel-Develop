@@ -150,9 +150,12 @@ return [
         'title' => '商品名',
         'review' => 'その他レビュー',
         'image' => '画像',
+        'size' => 'サイズ',
+        'material' => '素材',
+        'thickness' => '生地の厚さ',
+        'sheerness' => '透け感',
         'name' => '名前',
         'gender' => '性別',
-        'brand' => '好きなブランド',
         'introduction' => '自己紹介',
         ],
         
