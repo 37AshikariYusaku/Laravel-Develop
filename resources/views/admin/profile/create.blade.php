@@ -19,7 +19,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">アカウント名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}">
                         </div>
                     </div>
                     

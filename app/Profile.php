@@ -15,5 +15,7 @@ class Profile extends Model
     	'height' => 'required',
     	);
     	
-    
+    public function reviews() {
+	    return $this->hasMany('App\Review');
+	}
 }

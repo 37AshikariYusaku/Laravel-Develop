@@ -15,9 +15,14 @@ class ProfileController extends Controller
     }
     
     public function index() {
+        
         $posts = Profile::all();
         
-        return view('admin.profile.index', ['posts' => $posts]);
+        if(empty($posts)) {
+            return view('admin.profile.create');
+        } else {
+            return view('admin.profile.index', ['posts' => $posts]);
+        }
     }
     
     public function create(Request $request) {
@@ -26,12 +31,20 @@ class ProfileController extends Controller
         $profile = new Profile;
         $form = $request->all();
         
+        
         unset($form['_token']);
+        
+   
+        
+        
+        
         
         $profile->fill($form);
         $profile->save();
         
-    	return redirect('admin/profile/create');
+        $posts = Profile::all();
+        
+    	return view('admin.profile.index', ['posts' => $posts]);
     }
     
     public function edit(Request $request) {

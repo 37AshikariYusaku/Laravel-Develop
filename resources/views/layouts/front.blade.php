@@ -87,7 +87,8 @@
                                         @csrf
                                     </form>
                                     
-                                    <a class="dropdown-item" href="{{ action('Admin\ProfileController@index') }}">Profile</a>
+                                        <a class="dropdown-item" href="{{ action('Admin\ProfileController@index') }}">Profile</a>
+                                     
 
                                     
                                 </div>

@@ -39,7 +39,8 @@ class ReviewController extends Controller
         
         $review->fill($form);
         
-        $profile = new Profile;
+        // $profile = Profile::find($review->profile()->id);
+        $profile = Profile::find($review->profile->id);
         $review->profile_id = $profile->id;
          
         $review->save();
