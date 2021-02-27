@@ -18,7 +18,6 @@ class Review extends Model
     	'material' => 'required',
     	'thickness' => 'required',
     	'sheerness' => 'required',
-    	'profile_id' => 'required',
     	);
     	
 	public function histories() {
