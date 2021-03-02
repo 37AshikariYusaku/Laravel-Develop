@@ -44,8 +44,19 @@
                                 <h2 class="review">素材：{{ str_limit($headline->material, 100) }}</h2>
                                 <h2 class="review">生地の厚さ：{{ str_limit($headline->thickness, 10) }}</h2>
                                 <h2 class="review">透け感：{{ str_limit($headline->sheerness, 10) }}</h2>
-                                <h2 class="review mt-4">その他レビュー：</h2>
+                                <h2 class="review mt-4">レビュー：</h2>
                                 <p class="review mx-auto mt-2">{{ str_limit($headline->review, 650) }}</p>
+                                <div class="bottom">
+                                <div class="point-box">    
+                                <h2 class="review headline-point-title">投稿者プロフィール</h2>
+                                
+                                <p class="mx-auto mt-2 font-size">アカウント：{{ str_limit($headline->profile->name, 50) }}</p>
+                                <p class="mx-auto mt-2 font-size">性別：{{ str_limit($headline->profile->gender, 50) }}</p>
+                                <p class="mx-auto mt-2 font-size">身長：{{ str_limit($headline->profile->height, 50) }}cm</p>
+                                <p class="mx-auto mt-2 font-size">体型：{{ str_limit($headline->profile->shape, 50) }}</p>
+                                
+                                </div>
+                                </div>
                                 
                             </div>
                         </div>
@@ -59,7 +70,7 @@
                 @foreach($posts as $post)
                     <div class="post">
                         <div class="row">
-                            <div class="text col-md-6">
+                            <div class="text col-md-6 parent">
                                 <div class="date">
                                     {{ $post->updated_at->format('Y年m月d日') }}
                                 </div>
@@ -70,12 +81,23 @@
                                     {{ str_limit($post->title, 150) }}
                                 </div>
                                 <div class="review">
-                                    <h2 class="review mt-4">サイズ：{{ str_limit($post->size, 10) }}</h2>
+                                <h2 class="review mt-4">サイズ：{{ str_limit($post->size, 10) }}</h2>
                                 <h2 class="review">素材：{{ str_limit($post->material, 100) }}</h2>
                                 <h2 class="review">生地の厚さ：{{ str_limit($post->thickness, 10) }}</h2>
                                 <h2 class="review">透け感：{{ str_limit($post->sheerness, 10) }}</h2>
-                                <h2 class="review mt-4">その他レビュー：</h2>
+                                <h2 class="review mt-4">レビュー：</h2>
                                 <p class="review mx-auto mt-2">{{ str_limit($post->review, 650) }}</p>
+                                <div class="bottom">
+                                <div class="point-box">    
+                                <h2 class="review post-point-title">投稿者プロフィール</h2>
+                                <p class="mx-auto mt-2 font-size">アカウント：{{ str_limit($post->profile->name, 50) }}</p>
+                                <p class="mx-auto mt-2 font-size">性別：{{ str_limit($post->profile->gender, 50) }}</p>
+                                <p class="mx-auto mt-2 font-size">身長：{{ str_limit($post->profile->height, 50) }}cm</p>
+                                <p class="mx-auto mt-2 font-size">体型：{{ str_limit($post->profile->shape, 50) }}</p>
+                                </div>
+                                </div>
+                                
+
                                 </div>
                             </div>
                             <div class="image col-md-6 text-right mt-4">

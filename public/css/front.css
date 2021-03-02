@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .header .logo {
   width: 120px;
   height: 82px;
@@ -54,12 +56,14 @@
   line-height: 1.2em;
   font-weight: bold;
   background-color: rgba(102, 205, 170, 0.6);
+  width: 100%;
 }
 
 .posts .post .title {
   font-size: 1.1em;
   line-height: 1.1em;
   font-weight: bold;
+  width: 100%;
 }
 
 .posts .post .review {
@@ -123,5 +127,58 @@ body {
 .btn {
   color: white;
   background: rgba(152, 251, 152, 0.6);
+}
+
+.box {
+  display: flex;
+  border-style: solid;
+  border-color: rgba(102, 205, 170, 0.6);
+  border-radius: 5px;
+}
+
+.parent {
+  position: relative;
+}
+
+.point-box {
+  position: relative;
+  border: 2px solid rgba(152, 251, 152, 0.6);
+  /* 枠の太さ・種類・色 */
+  border-radius: 3px;
+  /* 枠の丸み */
+  padding: 5px 15px;
+  display: flex;
+}
+
+.headline-point-title {
+  position: absolute;
+  padding: 0 0.5em;
+  left: 20px;
+  font-weight: bold;
+  background-color: black;
+  display: inline-block;
+  bottom: 3.4em;
+}
+
+.post-point-title {
+  position: absolute;
+  padding: 0 0.5em;
+  left: 20px;
+  font-weight: bold;
+  background-color: black;
+  display: inline-block;
+  bottom: 3.8em;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.font-size {
+  font-size: 0.8em;
+  line-height: 0.8em;
+  padding-top: 0.8em;
 }
 

@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2">その他レビュー</label>
+                        <label class="col-md-2">レビュー</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="review" rows="10">{{ old('review') }}</textarea>
                         </div>

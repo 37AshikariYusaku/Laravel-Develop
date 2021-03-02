@@ -17,8 +17,9 @@ class ProfileController extends Controller
     public function index() {
         
         $posts = Profile::all();
+        $profile = Profile::first();
         
-        if(empty($posts)) {
+        if(empty($profile)) {
             return view('admin.profile.create');
         } else {
             return view('admin.profile.index', ['posts' => $posts]);
