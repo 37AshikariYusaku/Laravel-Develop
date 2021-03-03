@@ -77,7 +77,7 @@ class ReviewController extends Controller
         $review = Review::find($request->id);
         $review_form = $request->all();
         if( $request->file('image')) {
-            $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+            $path = Storage::disk('s3')->putFile('/',$review_form['image'],'public');
             $review_form['image_path'] = Storage::disk('s3')->url($path);
         } else {
             $review_form['image_path'] = $review->image_path;
