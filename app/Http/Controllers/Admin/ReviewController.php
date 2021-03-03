@@ -8,6 +8,7 @@ use App\Review;
 use App\History;
 use App\Profile;
 use Carbon\Carbon;
+use Storage;
 
 
 class ReviewController extends Controller
@@ -26,8 +27,11 @@ class ReviewController extends Controller
         $form = $request->all();
         
         // 画像投稿
-        $path = $request->file('image')->store('public/image');
-        $review->image_path = basename($path);
+        // $path = $request->file('image')->store('public/image');
+        // $review->image_path = basename($path);
+        
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $review->image_path = Storage::disk('s3')->url($path);
         
         // 素材複数選択
         $material = implode(",", $request->input('material',array()));
@@ -73,8 +77,8 @@ class ReviewController extends Controller
         $review = Review::find($request->id);
         $review_form = $request->all();
         if( $request->file('image')) {
-            $path = $request->file('image')->store('public/image');
-            $review_form['image_path'] = basename($path);
+            $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+            $review_form['image_path'] = Storage::disk('s3')->url($path);
         } else {
             $review_form['image_path'] = $review->image_path;
         }
